@@ -5,6 +5,8 @@ import { Menu } from 'antd';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Header } from 'antd/es/layout/layout';
+import { Provider } from 'react-redux';
+import store from '@/redux/store';
 
 // Define menu items
 const menuItems = [
@@ -34,9 +36,11 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en">
       <body style={{ margin: '0px', backgroundColor: '#f5f5f5' }}>
+      <Provider store={store} >
         <Header style={{ color: 'white', fontSize: '20px', marginBottom: '15px' }}>Next</Header>
         <Menu style={{ width: '95vw', margin: 'auto' }} mode="horizontal" theme="dark" selectedKeys={[pathname]} items={menuItems} />
         <AntdRegistry>{children}</AntdRegistry>
+      </Provider>
       </body>
     </html>
   );
