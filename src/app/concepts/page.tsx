@@ -5,16 +5,9 @@ import UseTransitionExample from '@/components/concepts/useTransition';
 import UseOptimisticExample from '@/components/concepts/useOptimistic';
 import UseFormStatusExample from '@/components/concepts/useFormStatus';
 
-
-
-
-
-
 const { Title } = Typography;
 const { TabPane } = Tabs;
-
 const hooks = ['useTransition', 'useOptimistic', 'useFormStatus',];
-
 
 const TabComponents: Record<string, JSX.Element> = {
 

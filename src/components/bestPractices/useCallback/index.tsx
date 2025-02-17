@@ -1,9 +1,17 @@
-import React, { useState, useCallback, useMemo } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import CallbackChild from "./CallbackChild";
+import { useDispatch } from "react-redux";
+import { fetchPosts } from "@/redux/features/bestPractices/GetPosts";
 
 const UseCallbackExample = () => {
   const [num, setNum] = useState(0);
-  const [showWithCallback, setShowWithCallback] = useState(true); // Toggle state
+  const [showWithCallback, setShowWithCallback] = useState(true); 
+  const dispatch=useDispatch();
+
+  useEffect(()=>{
+    dispatch(fetchPosts());
+  },[])
 
   // Memoized function (useCallback)
   const handleUpdateNum = useCallback(() => {
